@@ -1,49 +1,30 @@
-const {Diet} = require('../db');
+const { Diet } = require('../db');
 const axios = require('axios');
 require('dotenv').config();
-const {API_KEY} = process.env;
+const { API_KEY } = process.env;
 
-const getDiet = async() => {
-    try {
-        const dietas = [];
-        const response = await axios(
-            `https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=${API_KEY}&addRecipeInformation=true`
-          );
-        const diets = response.data.results.map(recipe => recipe.diets);
-        for(let i = 0; i < diets.length; i++){
-            for(let j = 0; j < diets[i].length; j++){
-                if(!dietas.includes(diets[i][j])){
-                    dietas.push(diets[i][j])
-                }
+const getDiets = async () => {
+    const dietsDB = []
+    const dietsAPI = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
+    const arrayDiets = dietsAPI.data.results.map(recipe => recipe.diets)
+    for (let i = 0; i < arrayDiets.length; i++) {
+        for (let j = 0; j < arrayDiets[i].length; j++) {
+            if (!dietsDB.includes(arrayDiets[i][j])) {
+                dietsDB.push(arrayDiets[i][j])
             }
         }
-        await Diet.bulkCreate(dietas.map(diet => {
-            return {
-                name:diet
-            }
-        }), {ignoreDuplicates: true});
-        console.log('Base de datos cargada!! 😎');
-    } catch (error) {
-       return (error.message)
     }
-};
-
-const dietController = async(req, res) => {
-    try {
-        const dbRes = await getDiet()
-        res.status(200).json({msg: 'Dietas cargadas'})       
-    } catch (error) {
-        res.status(400).json({err: error.message})
-    }
+    await Diet.bulkCreate(dietsDB.map(diet => {
+        return {
+            name: diet
+        }
+    }), { ignoreDuplicates: true })
+    console.log('DB CARGADA');
 }
 
-const getDietsDB = async (req, res) => {
-    try {
-        const dbRes = await Diet.findAll()
-        res.status(200).json(dbRes)       
-    } catch (error) {
-        res.status(400).json({err: error.message})
-    }
+const getDietsDB = async () => {
+    const diets = await Diet.findAll()
+    return diets
 }
 
-module.exports = { getDiet, dietController, getDietsDB };
+module.exports = { getDiets, getDietsDB }

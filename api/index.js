@@ -18,11 +18,13 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
+const { getDiets } = require('./src/controllers/diets.js');
 const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {  //el force elimina la tabla y la vuelve a crear
   server.listen(3001, () => {
+    getDiets()
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
