@@ -1,6 +1,7 @@
 const { Router } = require('express');
-const {recipesHandler} = require('../handlers/recipesHandler');
+const { recipesHandler, getRecipesHandler } = require('../handlers/recipesHandler');
 const recipesRouter = Router();
-recipesRouter.get("/", recipesHandler);
+recipesRouter.get("/", getRecipesHandler);
+// recipesRouter.get("/recipe", recipesHandler);
 
-module.exports = {recipesRouter};
+module.exports = { recipesRouter };

@@ -1,13 +1,4 @@
-const {getRecipes, getRecipe} = require('../controllers/detailRecipes')
-
-const detailRecipesHandler = async(req, res) => {
-    try {
-        const detailRecipes = await getRecipes()
-        res.status(200).json(detailRecipes)
-    } catch (error) {
-        res.status(400).json({error:error.message});
-    }
-}
+const { getRecipe} = require('../controllers/detailRecipes')
 
 const detailRecipeHandler = async(req, res) => {
     try {
@@ -18,5 +9,5 @@ const detailRecipeHandler = async(req, res) => {
     }
 }
 
-module.exports = {detailRecipesHandler, detailRecipeHandler }
+module.exports = { detailRecipeHandler }
 

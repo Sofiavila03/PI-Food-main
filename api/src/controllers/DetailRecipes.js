@@ -1,23 +1,42 @@
-const { Recipe } = require('../db');
+const { Recipe, Diet } = require('../db');
 const axios = require('axios');
 require('dotenv').config();
 const { API_KEY } = process.env;
-const URL = 'https://api.spoonacular.com/recipes/complexSearch'
-
-const getRecipes = async () => {
-  const details = await axios(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
-  return details.data.results
-}
 
 const getRecipe = async (id) => {
+  let formatDetail;
   if (!id.includes("-")) { // Si el ID no incluye un caracter no numerico
     const response = await axios.get(
       `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
     );
-    return response.data;
+    const api = response.data;
+    formatDetail = {
+      id: api.id,
+      title: api.title,
+      image: api.image,
+      summary: api.summary,
+      healthScore: api.healthScore,
+      steps: api.instructions,
+      diets: api.diets.map(diet => {
+        return {
+          name: diet
+        }
+      })
+    }
   } else {
-    return await Recipe.findByPk(id); // Si el ID es alfanumérico (UUID), buscar en la base de datos
+    formatDetail = await Recipe.findOne({
+      where: {
+        id: id
+      }, include: {
+        model: Diet,
+        attributes: ['name'],
+        through: {
+          attributes: []
+        }
+      }
+    });
   }
+  return formatDetail
 }
 
-module.exports = { getRecipes, getRecipe };
+module.exports = { getRecipe };
