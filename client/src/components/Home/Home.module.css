@@ -1,0 +1,81 @@
+/* GIF COOKING... */
+.contenedor {
+    gap: 8px;
+    margin: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* FONDO DONDE VAN LOS BOTONES: ALL - ALL - A-Z - ASCENDENTE */
+.options {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+}
+
+/* BOTONES: ALL - ALL - A-Z - ASCENDENTE */
+.options select {
+    margin-top: 0.3% 3px;
+    margin-right: 50px;
+    background-color: #FFC400;
+    color: #424040;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-style: normal;
+    border: #FFC400;
+    width: 10%;
+}
+
+/* COLOR CUANDO TE POSICIONAS SOBRE LOS BOTONES: ALL - ALL - A-Z - ASCENDENTE */
+.options select:hover,
+select:focus-visible {
+    color: rgb(59, 56, 56);
+    background-color: #fff5bc;
+}
+
+/* BOTON RESET */
+.options button {
+    margin-top: 0.3% 3px;
+    margin-right: 50px;
+    background-color: #FFC400;
+    color: #424040;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-style: normal;
+    border: #FFC400;
+    width: 5%;
+}
+
+/* COLOR QUE APARECE CUANDO TE COLOCAS SOBRE EL BOTON RESET */
+.options button:hover {
+    color: rgb(59, 56, 56);
+    background-color: #fff5bc;
+}
+
+/* FONDO DONDE VAN LAS FLECHAS PARA PASAR DE PAGINA */
+.paginado {
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+}
+
+/* FONDO DEL GIF COOKING... */
+.loader {
+    /* background-color: blue; */
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+
+}
+
+.loader img {
+    width: 400px;
+    height: 400px;
+
+}

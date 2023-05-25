@@ -1,0 +1,94 @@
+/* COLOR DE FONDO DE LAS CARDS */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+  width: 300px;
+  height: 410px;
+  padding: 10px;
+  margin: 8px;
+  box-shadow: 0 0 10px rgb(156, 156, 156);
+  transition: 0.2s;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 30px rgb(255, 255, 255);
+  transform: translate(0, -5px);
+}
+
+/* COLOR DE FONDO DE LA DESCRIPCION DE LAS CARDS */
+.card h3 {
+  color: rgb(94, 92, 92);
+  font-family: "Open Sans", sans-serif;
+  user-select: none;
+  text-align: center;
+  font-size: 16px;
+  margin: 2px;
+}
+
+/* COLOR DE FONDO DEL ICONO CON EL NUMERO DE SALUD DE LAS CARDS */
+.card h6 {
+  background-color: rgba(255, 255, 255, 0.61);
+  border: 0.5px rgba(255, 228, 196, 0.61);
+  border-radius: 5px;
+  position: absolute;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  text-align: right;
+  font-size: 15px;
+  margin: -10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.image {
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 0.7rem;
+  border: none;
+}
+
+/* COLOR DE FONDO DEL TIPO DE DIETA DE LAS CARDS */
+.diets {
+  color: rgb(94, 92, 92);
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  display: inline-block;
+  padding: 3px;
+  margin-top: -50px;
+}
+
+/* COLOR DE CADA FONDO DEL TIPO DE DIETA DE LAS CARDS */
+.diet {
+  background-color: rgba(255, 255, 255, 0.61);
+  border: none;
+}
+
+/* BOTON DETALLE DE LA CARD */
+.detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #ffc400;
+  border-color: #ffc400;
+  box-shadow: 0 0 15px rgb(255, 255, 255);
+  border-radius: 50px;
+  transition: .5s;
+  color: white;
+  margin: 0 auto;
+}

@@ -1,0 +1,51 @@
+/* LO 1° QUE SE VE */
+.landing {
+    background: linear-gradient(rgba(255, 222, 182, 0.2), rgba(255, 222, 182, 0.2)), url("C:\Users\Usuario\Downloads\Food Presentation (1).jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-repeat: no-repeat;
+}
+
+/* RECTANGULO DONDE VA LA FRASE Y EL BOTON */
+.container {
+    margin-top: 17%;
+    margin-bottom: 35%;
+    margin-left: -43%;
+}
+
+/* FRASE: COOK IT YOURSELF */
+.container h1 {
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    font-family: serif;
+    font-size: 80px;
+    font-style: normal;
+    color: #484848;
+}
+
+/* BOTON: JOIN NOW */
+.container button {
+    text-align: center;
+    margin-top: 0, 2%;
+    width: 25%;
+    height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ffc400;
+    border-color: #ffc400;
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    border-radius: 50px;
+    transition: .5s;
+    color: white;
+}
+
+.container button:hover {
+    transform: scale(1.1);
+}

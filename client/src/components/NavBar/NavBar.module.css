@@ -1,0 +1,63 @@
+/* FONDO DONDE ESTA NEW RECIPE Y ABOUT */
+.nav {
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1%;
+    box-shadow: 0 0 5px white;
+}
+
+/* FONDO DONDE ESTA EL LOGO */
+.nav img {
+    opacity: .5;
+    width: 190px;
+    height: 190px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.nav span {
+    color: rgba(0, 0, 0, 0.349);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* COLOR QUE APARECE CUANDO TE COLOCAS SOBRE EL LOGO */
+.nav img:hover {
+    opacity: 1;
+}
+
+.nav input {
+    margin-top: 40px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+.botones {
+    display: contents;
+}
+
+/* COLOR DE LOS BOTONES: NEW RECIPE Y ABOUT */
+.botones button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    margin-top: 93px;
+    border: none;
+    background-color: transparent;
+    color: #000;
+    font-size: 25px;
+    cursor: pointer;
+    transition: .3s;
+    margin-right: 200px;
+}
+
+/* COLOR QUE APARECE CUANDO TE POSICIONAS SOBRE LOS BOTONES: NEW RECIPE Y ABOUT */
+.botones button:hover {
+    transform: translate(0, .5px);
+    border: none;
+    background-color: transparent;
+    color: #000;
+    font-size: 20px;
+}
