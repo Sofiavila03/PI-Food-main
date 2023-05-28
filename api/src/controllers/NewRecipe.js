@@ -9,7 +9,7 @@ const createRecipe = async ({ title, image, summary, healthScore, steps, diets }
         await post.addDiets(foundDiets)
     }
 
-    return post
+    return post //representa la receta creada y asociada a las dieta en la DB
 }
 
 module.exports = { createRecipe };
