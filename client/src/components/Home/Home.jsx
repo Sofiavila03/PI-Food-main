@@ -66,10 +66,17 @@ export default function HomePage(props) {
       dispatch(healthScoreOrder(value));
     }
   };
+  // const reset = () => {
+  //   dispatch(deleteFilters())
+  //   document.getElementsByName("Diets")[0].selectedIndex = 0;
+  // }
   const reset = () => {
-    dispatch(deleteFilters())
-    document.getElementsByName("Diets")[0].selectedIndex = 0;
-  }
+    dispatch(deleteFilters());
+    const selectElements = document.getElementsByTagName("select");
+    for (let i = 0; i < selectElements.length; i++) {
+      selectElements[i].selectedIndex = 0;
+    }
+  };
   return (
     <div>
       <div className={styles.options}>
