@@ -9,8 +9,8 @@ export default function Form(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { diets } = useSelector((state) => state);
-  const [diet, setDiet] = useState([]);
-  const [recipe, setRecipe] = useState({
+  const [diet, setDiet] = useState([]); //para manejar el estado de las dietas seleccionadas
+  const [recipe, setRecipe] = useState({ //para manejar el estado del formulario de la receta 
     title: "",
     image: "",
     summary: "",
@@ -18,7 +18,7 @@ export default function Form(props) {
     steps: "",
     diets: [],
   });
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState({ //para manejar los errores de validacion del formulario
     title: "",
     image: "",
     summary: "",
@@ -26,7 +26,7 @@ export default function Form(props) {
     steps: "",
     diets: [],
   });
-  const inputChange = (event) => {
+  const inputChange = (event) => { //actualiza el estado de recipe y realiza la validacion. Tambien actualiza el estado de errors
     const { name, value } = event.target;
     setRecipe({
       ...recipe,
@@ -55,6 +55,7 @@ export default function Form(props) {
       );
     });
   };
+
   const dietHandler = (event) => {
     if (event.target.value) {
       setDiet([...diet, event.target.value]);
@@ -63,6 +64,7 @@ export default function Form(props) {
       event.target.value = "Choose your diets 🥰";
     }
   };
+
   const deleteDiet = (event) => {
     setDiet(diet.filter((d) => d !== event));
     setRecipe({
@@ -70,6 +72,7 @@ export default function Form(props) {
       diets: recipe.diets.filter((d) => d !== event),
     });
   };
+
   return (
     <div className={styles.container}>
       <form onSubmit={handlerSubmit}>
@@ -122,7 +125,7 @@ export default function Form(props) {
           defaultValue="Choose your diets 🥰"
         >
           <option disabled value="Choose your diets 🥰">
-            Choose your diets 🥰
+            Choose your diets
           </option>
           {mapDiets()}
         </select>
@@ -167,3 +170,4 @@ export default function Form(props) {
     </div>
   );
 }
+

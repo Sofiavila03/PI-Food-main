@@ -49,3 +49,38 @@
 .container button:hover {
     transform: scale(1.1);
 }
+
+@media screen and (max-width: 768px) {
+
+    /* Modificar estilos para dispositivos más pequeños */
+    .container {
+        margin-top: 10%;
+        margin-bottom: 20%;
+        margin-left: -20%;
+    }
+
+    .container h1 {
+        font-size: 20px;
+    }
+
+    .container button {
+        width: 15%;
+    }
+}
+
+/* Media query para pantallas de notebook */
+@media screen and (max-width: 1366px) {
+    .container {
+        margin-top: 16%;
+        margin-bottom: 20%;
+        margin-left: -43%;
+    }
+
+    .container h1 {
+        font-size: 60px;
+    }
+
+    .container button {
+        width: 35%;
+    }
+}

@@ -29,7 +29,7 @@ export default function HomePage(props) {
       dispatch(getDiets())
     }
   }, [dispatch, diets])
-  console.log(myRecipes);
+  // console.log(myRecipes);
   const [page, setPage] = useState(1);
   const finalPage = page * 9; //9 indica la cantidad de recetas que voy a mostrar por página
   const startPage = finalPage - 9;
@@ -68,6 +68,7 @@ export default function HomePage(props) {
   };
   const reset = () => {
     dispatch(deleteFilters())
+    document.getElementsByName("Diets")[0].selectedIndex = 0;
   }
   return (
     <div>
@@ -141,35 +142,3 @@ export default function HomePage(props) {
     </div>
   );
 }
-
-
-
-
-
-
-
-// import Card from "../Card/Card"
-// import styles from "./Home.module.css";
-// import { useSelector, useDispatch } from "react-redux";
-// import { useEffect } from "react";
-// import { getAllRecipes } from "../../redux/actions";
-
-// export default function Home() {
-//   const dispatch = useDispatch()
-//   const { myRecipes } = useSelector(state => state)
-//   useEffect(() => {
-//     dispatch(getAllRecipes())
-//   }, [dispatch])
-//   return (
-//     <div>
-//       {
-//         myRecipes.map(recipe => {
-//           return (<>
-//             <Card id={recipe.id} title={recipe.title} image={recipe.image} healthScore={recipe.healthScore} diets={recipe.diets} />
-
-//           </>)
-//         })
-//       }
-//     </div>
-//   )
-// }
