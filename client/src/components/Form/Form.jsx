@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validation from "./validation";
 import { addRecipe } from "../../redux/actions";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 export default function Form(props) {
   const navigate = useNavigate();
@@ -57,9 +57,16 @@ export default function Form(props) {
   };
 
   const dietHandler = (event) => {
+    // if (event.target.value) {
+    //   setDiet([...diet, event.target.value]);
+    //   setRecipe({ ...recipe, diets: [...diet, event.target.value] });
+    //   console.log("SUBIDA A LA RECETA");
+    //   event.target.value = "Choose your diets 🥰";
+    // }
     if (event.target.value) {
-      setDiet([...diet, event.target.value]);
-      setRecipe({ ...recipe, diets: [...diet, event.target.value] });
+      const updatedDiet = [...diet, event.target.value];
+      setDiet(updatedDiet);
+      setRecipe({ ...recipe, diets: updatedDiet });
       console.log("SUBIDA A LA RECETA");
       event.target.value = "Choose your diets 🥰";
     }
@@ -75,6 +82,9 @@ export default function Form(props) {
 
   return (
     <div className={styles.container}>
+      <NavLink to="/home">
+        <button className={styles.boton}>⬅</button>
+      </NavLink>
       <form onSubmit={handlerSubmit}>
         <label>Title: </label>
         <input
@@ -132,7 +142,7 @@ export default function Form(props) {
         <div className={styles.formDiets}>
           {diet?.map((d, i) => {
             return (
-              <button key={i} type="button" onDoubleClick={() => deleteDiet(d)}>
+              <button key={i} type="button" onClick={() => deleteDiet(d)}>
                 {d}
               </button>
             );
@@ -152,10 +162,13 @@ export default function Form(props) {
           </button>
         )}
       </form>
-      <div className={styles.card}>
+      {/* <div className={styles.card}>
         <h6>{recipe.healthScore}</h6>
         <img src={recipe.image} alt="" className={styles.image} />
+        <br />
+        <br />
         <h3>{recipe.title}</h3>
+        <br />
         <br />
         {recipe.diets.map((diet) => {
           return (
@@ -166,7 +179,7 @@ export default function Form(props) {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 }

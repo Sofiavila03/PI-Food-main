@@ -31,7 +31,7 @@ export default function Card(props) {
                     </React.Fragment>
                 ))}
             </div>
-            <button onClick={toDetail} className={styles.detail}>Ver Detalle</button>
+            <button onClick={toDetail} className={styles.detail}>+</button>
         </div>
     )
 }

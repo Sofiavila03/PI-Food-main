@@ -38,7 +38,7 @@
     font-family: serif;
     font-style: normal;
     font-size: 20px;
-    text-shadow: 0 0 2px black;
+    /* text-shadow: 0 0 2px black; */
     margin-top: 10px;
     text-align: center;
 }
@@ -55,7 +55,7 @@
     border: none;
     bottom: 10px;
     position: absolute;
-    top: 160px;
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;

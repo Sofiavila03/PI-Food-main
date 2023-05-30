@@ -9,6 +9,7 @@
 
 /* FONDO DONDE ESTA EL LOGO */
 .nav img {
+    margin-top: -30%;
     opacity: .5;
     width: 190px;
     height: 190px;
@@ -43,7 +44,7 @@
 .botones button {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: normal;
-    margin-top: 93px;
+    margin-top: 11%;
     border: none;
     background-color: transparent;
     color: #000;

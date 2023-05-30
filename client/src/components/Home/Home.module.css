@@ -9,14 +9,13 @@
 
 /* FONDO DONDE VAN LOS BOTONES: ALL - ALL - A-Z - ASCENDENTE */
 .options {
-    /* background-color: red; */
     display: flex;
     justify-content: center;
 }
 
 /* BOTONES: ALL - ALL - A-Z - ASCENDENTE */
 .options select {
-    margin-top: 0.3% 3px;
+    margin-top: -2%;
     margin-right: 50px;
     background-color: #FFC400;
     color: #424040;
@@ -33,12 +32,12 @@
 .options select:hover,
 select:focus-visible {
     color: rgb(59, 56, 56);
-    background-color: #fff5bc;
+    background-color: #ffed89;
 }
 
 /* BOTON RESET */
 .options button {
-    margin-top: 0.3% 3px;
+    margin-top: -2%;
     margin-right: 50px;
     background-color: #FFC400;
     color: #424040;
@@ -54,7 +53,7 @@ select:focus-visible {
 /* COLOR QUE APARECE CUANDO TE COLOCAS SOBRE EL BOTON RESET */
 .options button:hover {
     color: rgb(59, 56, 56);
-    background-color: #fff5bc;
+    background-color: #ffed89;
 }
 
 /* FONDO DONDE VAN LAS FLECHAS PARA PASAR DE PAGINA */

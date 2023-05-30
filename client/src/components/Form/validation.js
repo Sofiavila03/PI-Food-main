@@ -23,5 +23,6 @@ export default function validation(inputs) {
   if (inputs.diets.length === 0) {
     errors.diets = "Seleccione al menos una dieta";
   }
+
   return errors;
 }

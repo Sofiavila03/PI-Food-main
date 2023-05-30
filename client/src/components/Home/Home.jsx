@@ -66,10 +66,6 @@ export default function HomePage(props) {
       dispatch(healthScoreOrder(value));
     }
   };
-  // const reset = () => {
-  //   dispatch(deleteFilters())
-  //   document.getElementsByName("Diets")[0].selectedIndex = 0;
-  // }
   const reset = () => {
     dispatch(deleteFilters());
     const selectElements = document.getElementsByTagName("select");

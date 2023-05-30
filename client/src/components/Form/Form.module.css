@@ -1,18 +1,20 @@
 /* CAJA QUE CONTIENE TODO */
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
 }
 
 /* CAJA QUE CONTIENE EL FORMULARIO */
 .container form {
   background-color: #ffc400;
   padding: 16px;
-  margin-top: 8px;
+  margin-top: -25px;
   border-radius: 10px;
-  width: 500px;
+  width: 400px;
   display: flex;
   flex-direction: column;
+
 }
 
 /* ETIQUETAS TITLE, IMAGE, SUMMARY, HEALTHSCORE, STEPS, DIETS */
@@ -60,7 +62,6 @@
   margin-top: 2%;
   margin-bottom: 2%;
   height: 8px;
-  /* background: rgba(0, 0, 0, 0.6); */
   outline: none;
   border-radius: 5px;
 
@@ -82,10 +83,9 @@
   background-color: rgb(255, 255, 255);
   margin-top: .3%;
   margin-bottom: 1%;
-  /* background-color: rgba(121, 87, 68, 0.90); */
   color: rgb(73, 69, 69);
   border-radius: 6.5px;
-  font-size: 18px;
+  font-size: 17px;
   cursor: pointer;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: normal;
@@ -96,20 +96,18 @@
 select:focus-visible {
   background-color: rgb(189, 183, 183);
   color: black;
-  /* background-color: bisque; */
 }
 
 .createButton {
   border-radius: 10px;
   width: fit-content;
   font-size: 20px;
-  margin-left: 82%;
+  margin-left: 42%;
 }
 
 /* COLOR  DEL BOTON CREATE */
 .disabledButton {
   background-color: rgb(255, 255, 255);
-  /* background-color: rgba(190, 15, 15, 0.7); */
   border-radius: 10px;
   width: fit-content;
   font-size: 20px;
@@ -210,4 +208,22 @@ select:focus-visible {
   color: rgba(165, 0, 0, 0.836);
   font-style: normal;
   text-shadow: 0 0 1px rgba(165, 0, 0, 0.836);
+}
+
+.boton {
+  background-color: #ffc400;
+  color: rgb(255, 255, 255);
+  width: 50px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 10px auto;
+  transition: .3s;
+  border: none;
+  bottom: 10px;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }

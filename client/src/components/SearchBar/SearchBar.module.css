@@ -2,9 +2,10 @@
 .searchbar input {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: normal;
-    font-size: 18px;
+    font-size: 16px;
     background-color: transparent;
     color: rgba(255, 228, 196, 0.8);
+    margin-top: 11%;
 }
 
 /* COLOR DEL BOTON SEARCH */
@@ -17,17 +18,14 @@
     background-color: transparent;
     color: #000;
     font-size: 25px;
-    margin-top: 93px;
+    margin-top: 11%;
 }
 
 /* COLOR CUANDO PASAS EL CURSOR SOBRE EL BOTON SEARCH */
 .searchbar button:hover {
-    /* background-color: rgba(0, 0, 0, 0.568);
-    color: rgba(255, 228, 196, 0.61);
-    box-shadow: 0 0 8px black; */
     transform: translate(0, .5px);
     border: none;
-    background-color: transparent;
+    background-color: #ffc400;
     color: #000;
     font-size: 20px;
 }
