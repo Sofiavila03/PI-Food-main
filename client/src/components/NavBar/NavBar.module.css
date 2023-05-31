@@ -44,14 +44,15 @@
 .botones button {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: normal;
-    margin-top: 11%;
+    font-weight: bold;
+    margin-top: 36px;
     border: none;
     background-color: transparent;
-    color: #000;
+    color: #ffc400;
     font-size: 25px;
     cursor: pointer;
     transition: .3s;
-    margin-right: 200px;
+    margin-right: 100px;
 }
 
 /* COLOR QUE APARECE CUANDO TE POSICIONAS SOBRE LOS BOTONES: NEW RECIPE Y ABOUT */

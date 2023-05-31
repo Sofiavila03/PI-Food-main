@@ -20,9 +20,9 @@ export default function validation(inputs) {
   if (!inputs.steps.trim().length >= 1) {
     errors.steps = "Campo obligatorio";
   }
-  if (inputs.diets.length === 0) {
-    errors.diets = "Seleccione al menos una dieta";
-  }
+  // if (inputs.diets.length === 0) {
+  //   errors.diets = "Seleccione al menos una dieta";
+  // }
 
   return errors;
 }

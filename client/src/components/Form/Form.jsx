@@ -41,6 +41,7 @@ export default function Form(props) {
   };
   const handlerSubmit = (event) => {
     event.preventDefault();
+    setRecipe({ ...recipe, diets: diets }); // Agrega esta línea
     dispatch(addRecipe(recipe));
     alert("✅Recipe created successfully!!✅");
     navigate("/home");
@@ -57,19 +58,13 @@ export default function Form(props) {
   };
 
   const dietHandler = (event) => {
-    // if (event.target.value) {
-    //   setDiet([...diet, event.target.value]);
-    //   setRecipe({ ...recipe, diets: [...diet, event.target.value] });
-    //   console.log("SUBIDA A LA RECETA");
-    //   event.target.value = "Choose your diets 🥰";
-    // }
     if (event.target.value) {
-      const updatedDiet = [...diet, event.target.value];
-      setDiet(updatedDiet);
-      setRecipe({ ...recipe, diets: updatedDiet });
+      setDiet([...diet, event.target.value]);
+      setRecipe({ ...recipe, diets: [...diet, event.target.value] });
       console.log("SUBIDA A LA RECETA");
       event.target.value = "Choose your diets 🥰";
     }
+
   };
 
   const deleteDiet = (event) => {
