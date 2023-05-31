@@ -36,7 +36,7 @@ const getRecipesByName = async (title) => {
 }
 
 const getRecipes = async () => {
-  const details = await axios(`${URL}?apiKey=${API_KEY}&addRecipeInformation=true&number=10`)
+  const details = await axios(`${URL}?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
 
   const detailsDB = await Recipe.findAll({
     include: {
