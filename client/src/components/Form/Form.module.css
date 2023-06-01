@@ -96,6 +96,7 @@
 select:focus-visible {
   background-color: rgb(189, 183, 183);
   color: black;
+
 }
 
 .createButton {

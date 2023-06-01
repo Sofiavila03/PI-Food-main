@@ -11,7 +11,7 @@ export default function Card(props) {
     const { title, image, healthScore, diets } = props;
 
     return (
-        <div key={props.id} className={styles.card}>
+        <div key={props.id} className={styles.card} >
             <h6>{healthScore}</h6>
             <img src={image} alt={title} className={styles.image} />
             <h3>{title}</h3>

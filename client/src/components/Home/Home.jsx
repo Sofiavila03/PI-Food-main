@@ -29,7 +29,6 @@ export default function HomePage(props) {
       dispatch(getDiets())
     }
   }, [dispatch, diets])
-  // console.log(myRecipes);
   const [page, setPage] = useState(1);
   const finalPage = page * 9; //9 indica la cantidad de recetas que voy a mostrar por página
   const startPage = finalPage - 9;
@@ -44,6 +43,7 @@ export default function HomePage(props) {
   const handlerPageNumber = (n) => {
     setPage(n);
   };
+
   const filterHandler = (event) => {
     const { name, value } = event.target;
     if (name === "Diets") {
@@ -58,6 +58,7 @@ export default function HomePage(props) {
       setPage(1)
     }
   };
+
   const orderHandler = (event) => {
     const { name, value } = event.target;
     if (name === "Alphabetic") {
@@ -73,6 +74,7 @@ export default function HomePage(props) {
       selectElements[i].selectedIndex = 0;
     }
   };
+
   return (
     <div>
       <div className={styles.options}>
@@ -100,8 +102,8 @@ export default function HomePage(props) {
         </select>
         <select name="HealthScore" onChange={orderHandler} defaultValue='HealthScore Order'>
           <option disabled > Order By</option>
-          <option value="Ascendente">Ascendente</option>
-          <option value="Descendente">Descendente</option>
+          <option value="Ascendente">Lowest Score</option>
+          <option value="Descendente">Highest Score</option>
         </select>
         <button onClick={reset}>Reset</button>
       </div>

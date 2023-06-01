@@ -43,9 +43,10 @@ export default function Form(props) {
     event.preventDefault();
     setRecipe({ ...recipe, diets: diets }); // Agrega esta línea
     dispatch(addRecipe(recipe));
-    alert("✅Recipe created successfully!!✅");
+    alert("Recipe created successfully!");
     navigate("/home");
   };
+
   const mapDiets = () => {
     const filtered = diets.filter((d) => !diet.includes(d.name));
     return filtered.map((di, i) => {
@@ -62,7 +63,7 @@ export default function Form(props) {
       setDiet([...diet, event.target.value]);
       setRecipe({ ...recipe, diets: [...diet, event.target.value] });
       console.log("SUBIDA A LA RECETA");
-      event.target.value = "Choose your diets 🥰";
+      event.target.value = "Choose your diets";
     }
 
   };
@@ -74,6 +75,7 @@ export default function Form(props) {
       diets: recipe.diets.filter((d) => d !== event),
     });
   };
+
 
   return (
     <div className={styles.container}>
@@ -105,7 +107,7 @@ export default function Form(props) {
           onChange={inputChange}
         />
         {errors.summary && <p className={styles.error}>{errors.summary}</p>}
-        <label>HealthScore: </label>
+        <label>HealthScore: {recipe.healthScore} </label>
         <input
           id="range-input"
           name="healthScore"
@@ -127,9 +129,9 @@ export default function Form(props) {
         <select
           onChange={dietHandler}
           name="diets"
-          defaultValue="Choose your diets 🥰"
+          defaultValue="Choose your diets"
         >
-          <option disabled value="Choose your diets 🥰">
+          <option disabled value="Choose your diets">
             Choose your diets
           </option>
           {mapDiets()}
