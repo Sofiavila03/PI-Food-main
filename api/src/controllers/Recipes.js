@@ -54,7 +54,7 @@ const getRecipes = async () => {
     }
   }))
 
-  return [...details.data.results, ...detailsDB]
+  return [...detailsDB, ...details.data.results]
 }
 
 module.exports = { getRecipesByName, getRecipes }

@@ -5,7 +5,7 @@ const { API_KEY } = process.env;
 
 const getRecipe = async (id) => {
   let formatDetail; //para almacenar el detalle de la receta
-  if (!id.includes("-")) { // Si el ID no incluye un caracter no numerico
+  if (!id.includes("-")) { //verifica si el ID no incluye un caracter no numerico
     const response = await axios.get(
       `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
     );
