@@ -13,7 +13,6 @@ import {
 } from "./actions-types";
 
 const initialState = {
-  allRecipes: [],
   myRecipes: [],
   loading: false,
   detail: {},
@@ -61,7 +60,7 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         myRecipes: allRecipesFiltered,
       };
-    case ALPHABETIC_ORDER: //rdena las recetas en myRecipes alfabéticamente según el criterio especificado en payload
+    case ALPHABETIC_ORDER: //Ordena las recetas en myRecipes alfabéticamente según el criterio especificado en payload
       return {
         ...state,
         myRecipes:

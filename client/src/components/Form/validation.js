@@ -1,7 +1,7 @@
 export default function validation(inputs) {
   const errors = {};
-  const urlRegex = /(https?:\/\/.*\.(?:png|jpeg|jpg))/i; //Expresión regular para verificar una url solamente de imágenes
-  const letraRegex = /^[A-Za-z\s]+$/; //Expresión regular para verificar que un texto no tenga números ni símbolos
+  const urlRegex = /(https?:\/\/.*\.(?:png|jpeg|jpg))/i; //para verificar una url solamente de imágenes
+  const letraRegex = /^[A-Za-z\s]+$/; //para verificar que un texto no tenga números ni símbolos
   if (!letraRegex.test(inputs.title)) {
     errors.title = "Name cannot have symbols or numbers";
   }

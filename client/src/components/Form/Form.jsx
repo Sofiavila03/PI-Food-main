@@ -9,7 +9,7 @@ export default function Form(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { diets } = useSelector((state) => state);
-  const [diet, setDiet] = useState([]); //para manejar el estado de las dietas seleccionadas
+  const [diet, setDiet] = useState([]); //para almacenar las dietas seleccionadas
   const [recipe, setRecipe] = useState({ //para manejar el estado del formulario de la receta 
     title: "",
     image: "",
@@ -26,7 +26,7 @@ export default function Form(props) {
     steps: "",
     diets: [],
   });
-  const inputChange = (event) => { //actualiza el estado de recipe y realiza la validacion. Tambien actualiza el estado de errors
+  const inputChange = (event) => { //actualiza el estado de recipe,realiza la validacion y actualiza el estado de errors
     const { name, value } = event.target;
     setRecipe({
       ...recipe,
@@ -40,15 +40,15 @@ export default function Form(props) {
     );
   };
   const handlerSubmit = (event) => {
-    event.preventDefault();
-    setRecipe({ ...recipe, diets: diets }); // Agrega esta línea
+    event.preventDefault(); //evita que se envie el form y se recargue la pagina
+    setRecipe({ ...recipe, diets: diets });
     dispatch(addRecipe(recipe));
     alert("Recipe created successfully!");
     navigate("/home");
   };
 
   const mapDiets = () => {
-    const filtered = diets.filter((d) => !diet.includes(d.name));
+    const filtered = diets.filter((d) => !diet.includes(d.name));//para iterar sobre cada elemento d en diets y verificar si el nombre de la dieta d.name no está incluido en el arreglo diet. Si no está incluido, se mantiene en el arreglo filtered, de lo contrario, se descarta
     return filtered.map((di, i) => {
       return (
         <option value={di.name} key={i}>
@@ -59,8 +59,8 @@ export default function Form(props) {
   };
 
   const dietHandler = (event) => {
-    if (event.target.value) {
-      setDiet([...diet, event.target.value]);
+    if (event.target.value) { //verifica si el valor seleccionado no es nulo
+      setDiet([...diet, event.target.value]); //se agrega el valor seleccionado al estado diet
       setRecipe({ ...recipe, diets: [...diet, event.target.value] });
       console.log("SUBIDA A LA RECETA");
       event.target.value = "Choose your diets";
@@ -75,7 +75,6 @@ export default function Form(props) {
       diets: recipe.diets.filter((d) => d !== event),
     });
   };
-
 
   return (
     <div className={styles.container}>
@@ -159,24 +158,6 @@ export default function Form(props) {
           </button>
         )}
       </form>
-      {/* <div className={styles.card}>
-        <h6>{recipe.healthScore}</h6>
-        <img src={recipe.image} alt="" className={styles.image} />
-        <br />
-        <br />
-        <h3>{recipe.title}</h3>
-        <br />
-        <br />
-        {recipe.diets.map((diet) => {
-          return (
-            <div className={styles.diets}>
-              <span className={styles.diet}>
-                {diet.charAt(0).toUpperCase() + diet.slice(1)}
-              </span>
-            </div>
-          );
-        })}
-      </div> */}
     </div>
   );
 }

@@ -16,15 +16,9 @@ export default function Card(props) {
             <img src={image} alt={title} className={styles.image} />
             <h3>{title}</h3>
             <br />
-            {/* {diets?.map((diet, i) => {
-                return (
-                    <div key={i} className={styles.diets}>
-                        <span className={styles.diet}>{diet.charAt(0).toUpperCase() + diet.slice(1)}</span>
-                    </div>
-                )
-            })} */}
             <div className={styles.diets}>
-                {diets?.map((diet, i) => (
+                {diets?.map((diet, i) => ( //para recorrer la lista de dietas
+                    //para agrupar varios elementos en 1 solo bloque
                     <React.Fragment key={i}>
                         <span className={styles.diet}>{diet.charAt(0).toUpperCase() + diet.slice(1)}</span>
                         {i < diets.length - 1 && <span className={styles.separator}> - </span>}

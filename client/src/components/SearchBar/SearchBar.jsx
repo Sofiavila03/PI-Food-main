@@ -4,12 +4,13 @@ import { getAllRecipes, getQueryRecipe } from "../../redux/actions";
 import styles from './SearchBar.module.css';
 
 export default function SearchBar(props) {
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState('');//el estado input se inicializa con una cadena vacia
     const dispatch = useDispatch()
     const searchHandler = (event) => {
         const { value } = event.target
         if (value) {
             dispatch(getQueryRecipe(value))
+            props.setPage(1)
         } else {
             dispatch(getAllRecipes())
 

@@ -6,17 +6,17 @@ import loader from "../../img/giphy (1).webp";
 import { getDetail } from "../../redux/actions";
 
 export default function Detail() {
-  const { id } = useParams();
-  const { detail, loading } = useSelector(state => state)
-  const dispatch = useDispatch();
+  const { id } = useParams(); //para obtener el id desde los parametros de la URL
+  const { detail, loading } = useSelector(state => state) //para acceder a las propiedades detail y loading del estado global
+  const dispatch = useDispatch(); //para actualizar el estado global
   useEffect(() => {
-    dispatch(getDetail(id))
+    dispatch(getDetail(id))//para obtener el detalle de una receta especifica
   }, [dispatch, id])
   const regExp = /<[^>]*>/g;
   return (
     <div className={styles.container}>
       <NavLink to='/home'>
-        <button className={styles.back}>⬅</button>
+        <button className={styles.back} style={{ display: loading ? "none" : "" }}>⬅</button>
       </NavLink>
       {loading ? <div className={styles.loader}><img src={loader} alt='Loading' /> </div> :
         (<div className={styles.data}>

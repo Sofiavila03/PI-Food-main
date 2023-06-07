@@ -1,6 +1,6 @@
 /* FONDO DE TODO */
 .parrafo {
-    margin: 0 auto;
+    margin: 10% auto 0;
     width: 1000px;
     display: flex;
     flex-direction: row;

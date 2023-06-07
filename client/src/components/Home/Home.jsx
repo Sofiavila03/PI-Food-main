@@ -14,6 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import loader from "../../img/giphy (1).webp";
 import Paginado from "../Paginado/Paginado";
+import NavBar from "../NavBar/NavBar";
 
 export default function HomePage(props) {
   const { myRecipes, loading, diets } = useSelector(
@@ -67,6 +68,7 @@ export default function HomePage(props) {
       dispatch(healthScoreOrder(value));
     }
   };
+
   const reset = () => {
     dispatch(deleteFilters());
     const selectElements = document.getElementsByTagName("select");
@@ -77,6 +79,7 @@ export default function HomePage(props) {
 
   return (
     <div>
+      <NavBar setPage={setPage} />
       <div className={styles.options}>
         <select name="Origin" onChange={filterHandler} defaultValue='Filter By Origin'>
           <option disabled >Filter By</option>
