@@ -7,7 +7,7 @@ const { API_KEY } = process.env;
 const URL = 'https://api.spoonacular.com/recipes/complexSearch';
 
 const getRecipesByName = async (title) => { //obtiene las recetas filtradas por su nombre
-  const recipesAPI = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
+  const recipesAPI = await axios(`${URL}?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
   const api = recipesAPI.data.results;
 
   const recipesDB = await Recipe.findAll({ //para buscar en la DB todas las recetas
