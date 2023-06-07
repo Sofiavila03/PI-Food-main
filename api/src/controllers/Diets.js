@@ -4,7 +4,7 @@ require('dotenv').config();
 const { API_KEY } = process.env;
 
 const getDiets = async () => {
-    const dietsDB = [] //para almacenar las dietas obtenidas desde la api
+    const dietsDB = [] //para almacenar las dietas obtenidas desde la api 
     const dietsAPI = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
     const arrayDiets = dietsAPI.data.results.map(recipe => recipe.diets)
     for (let i = 0; i < arrayDiets.length; i++) {
@@ -14,7 +14,7 @@ const getDiets = async () => {
             }
         }
     }
-    await Diet.bulkCreate(dietsDB.map(diet => {
+    await Diet.bulkCreate(dietsDB.map(diet => { //para agregar las dietas a la DB
         return {
             name: diet
         }
@@ -22,7 +22,7 @@ const getDiets = async () => {
     console.log('DB CARGADA');
 }
 
-const getDietsDB = async () => {
+const getDietsDB = async () => { //para obtener todas las dietas de la DB
     const diets = await Diet.findAll()
     return diets
 }

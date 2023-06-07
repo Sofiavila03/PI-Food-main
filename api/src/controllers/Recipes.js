@@ -6,15 +6,15 @@ const { API_KEY } = process.env;
 // const { Op } = require('sequelize');
 const URL = 'https://api.spoonacular.com/recipes/complexSearch';
 
-const getRecipesByName = async (title) => {
+const getRecipesByName = async (title) => { //obtiene las recetas filtradas por su nombre
   const recipesAPI = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
   const api = recipesAPI.data.results;
 
-  const recipesDB = await Recipe.findAll({
+  const recipesDB = await Recipe.findAll({ //para buscar en la DB todas las recetas
     include: {
-      model: Diet,
+      model: Diet, //para obtener las dietas asociadas a cada receta
     }
-  }).then(data => data.map(recipe => {
+  }).then(data => data.map(recipe => { //para transformar el formato de las recetas
     return {
       id: recipe.id,
       title: recipe.title,
@@ -26,7 +26,7 @@ const getRecipesByName = async (title) => {
     }
   }))
 
-  const allRecipes = api.concat(recipesDB)
+  const allRecipes = api.concat(recipesDB) //combinamos las recetas de la API con las de la DB
   const filtername = allRecipes.filter((api) => api.title.toLowerCase().includes(title.toLowerCase()) //filtro las recetas de la api + DB
   );
 
@@ -35,7 +35,7 @@ const getRecipesByName = async (title) => {
 
 }
 
-const getRecipes = async () => {
+const getRecipes = async () => { //obtiene todas las recetas(sin filtros)
   const details = await axios(`${URL}?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
 
   const detailsDB = await Recipe.findAll({
