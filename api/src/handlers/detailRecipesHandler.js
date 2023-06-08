@@ -9,5 +9,5 @@ const detailRecipeHandler = async (req, res) => {
     }
 }
 
-module.exports = { detailRecipeHandler }
+module.exports = { detailRecipeHandler };
 
