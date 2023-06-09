@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const { getRecipe } = require('../controllers/detailRecipes')
+const { detailRecipeHandler } = require('../handlers/detailRecipesHandler')
 const detailRecipesRouter = Router();
-detailRecipesRouter.get("/:id", getRecipe)
+detailRecipesRouter.get("/:id", detailRecipeHandler)
 
 module.exports = { detailRecipesRouter };
